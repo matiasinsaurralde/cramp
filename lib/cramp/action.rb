@@ -47,7 +47,7 @@ module Cramp
         status, headers = respond_to?(:respond_with, true) ? respond_with : [200, {}]
 
         headers = headers.merge(self.default_chunked_headers)
-        headers['Content-Type'] ||= 'text/html'
+        headers['Content-Type'] ||= 'text/event-stream'
         headers['Cache-Control'] ||= 'no-cache'
 
         [status, headers]

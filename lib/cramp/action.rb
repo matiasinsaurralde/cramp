@@ -41,7 +41,7 @@ module Cramp
     def build_headers
       case transport
       when :sse
-        status, headers = respond_to?(:respond_with, true) ? respond_with : [200, {'Content-Type' => 'text/html'}]
+        status, headers = respond_to?(:respond_with, true) ? respond_with : [200, {'Content-Type' => 'text/event-stream'}]
         [status, headers.merge(self.default_sse_headers)]
       when :chunked
         status, headers = respond_to?(:respond_with, true) ? respond_with : [200, {}]
